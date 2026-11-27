@@ -2,6 +2,19 @@
   "version": 0,
   "configuration": {
     "socials": [],
-    "enabledNavigations": []
+    "enabledNavigations": [
+      "home",
+      "notice",
+      "publication",
+      "about",
+      "activities",
+      "all-staffs",
+      "classes",
+      "faculties",
+      "organisations",
+      "downloads",
+      "results",
+      "grievance"
+    ]
   }
 }

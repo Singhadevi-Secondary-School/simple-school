@@ -67,6 +67,11 @@ export const schema = z
           "The visual template used for rendering content pages. " +
           "Options are determined by the folders inside the templates directory.",
       }),
+    daysToShowNoticePopupFor: z.number().int().min(0).default(3).meta({
+      title: "Days to Show Notice Popups For",
+      description:
+        "The number of days after publication that a notice may appear in a popup. Set to 0 to disable notice popups.",
+    }),
   })
   .meta({
     title: "Core Configuration",
@@ -81,7 +86,10 @@ export const buildSchema = schema
     logo: z.union([z.literal(""), z.url("Logo must be a valid URL")]),
     template: z.string(),
   })
-  .partial();
+  .partial()
+  .extend({
+    daysToShowNoticePopupFor: schema.shape.daysToShowNoticePopupFor,
+  });
 
 export type TInput = z.input<typeof schema>;
 export type TOutput = z.output<typeof schema>;
@@ -95,4 +103,5 @@ export const defaultValues: TInput = {
   seoDescription: "",
   seoKeywords: [],
   template: "default",
+  daysToShowNoticePopupFor: 3,
 };

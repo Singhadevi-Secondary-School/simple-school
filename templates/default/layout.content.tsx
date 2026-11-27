@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { LayoutContentProps } from "@/app/(app)/layout.types";
 import GoToTopButton from "@/components/ui/GoToTopButton";
+import NoticePopup from "@/components/ui/NoticePopup";
 import SmartLink from "@/components/ui/SmartLink";
 import { getActiveSlug } from "@/lib/slugs";
 import styles from "./layout.module.css";
@@ -569,12 +570,17 @@ export default function ShellTemplate({
   coreConfig,
   navigationConfig,
   organizationsConfig,
+  noticePopupItems,
 }: LayoutContentProps) {
   return (
     <div className={styles.page}>
       <SmartLink href="#main-content" className={styles.skipLink}>
         Skip to main content
       </SmartLink>
+      <NoticePopup
+        notices={noticePopupItems}
+        daysToShow={coreConfig.daysToShowNoticePopupFor}
+      />
       <Header
         coreConfig={coreConfig}
         navigationConfig={navigationConfig}

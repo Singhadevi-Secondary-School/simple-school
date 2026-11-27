@@ -5,11 +5,23 @@ import { Suspense } from "react";
 import type { LayoutContentProps } from "@/app/(app)/layout.types";
 import { Spinner } from "@/components/ui/spinner";
 import {
+  ContentsConfig,
   CoreConfig,
   NavigationConfig,
   OrganizationsConfig,
 } from "@/configuration";
+import { getActiveSlug } from "@/lib/slugs";
 import { getFileType, Templates } from "@/lib/templates";
+
+const noticePopupItems = ContentsConfig.list
+  .filter((item) => item.type === "notice" && item.slugs.length > 0)
+  .map(({ id, title, summary, date, slugs }) => ({
+    id,
+    title,
+    summary,
+    date,
+    href: `/notices/${getActiveSlug(slugs)}/`,
+  }));
 
 const templateType = getFileType(
   join(process.cwd(), `templates/${CoreConfig.template}/layout.content.tsx`),
@@ -43,6 +55,7 @@ function Layout({ children }: LayoutProps<"/">) {
           coreConfig={CoreConfig}
           navigationConfig={NavigationConfig}
           organizationsConfig={OrganizationsConfig}
+          noticePopupItems={noticePopupItems}
         >
           {children}
         </LayoutContent>

@@ -162,7 +162,9 @@ function PageContent() {
           className={"max-h-[calc(100dvh-8rem)] overflow-y-auto p-4 sm:p-6"}
         >
           <div
-            className={"mb-6 flex items-start justify-between gap-4 border-b pb-4"}
+            className={
+              "mb-6 flex items-start justify-between gap-4 border-b pb-4"
+            }
           >
             <div className={"flex min-w-0 items-start gap-3"}>
               <Button
@@ -242,8 +244,7 @@ function PageContent() {
                           onClick={() => moveStaffMember(idx, 1)}
                           aria-label={`Move staff member ${idx + 1} down`}
                           disabled={
-                            idx === details.people.length - 1 ||
-                            isSavingConfig
+                            idx === details.people.length - 1 || isSavingConfig
                           }
                         >
                           <ChevronDown aria-hidden="true" />
@@ -300,9 +301,7 @@ function PageContent() {
                     </div>
 
                     <div className={"grid gap-2"}>
-                      <Label
-                        htmlFor={`people.${person.fieldArrayId}.position`}
-                      >
+                      <Label htmlFor={`people.${person.fieldArrayId}.position`}>
                         Position
                       </Label>
                       <Input

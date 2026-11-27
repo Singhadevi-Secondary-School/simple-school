@@ -1,4 +1,4 @@
-import type { PageContentProps } from "@/app/(app)/grievance/page.types";
+import type { PageContentProps } from "@/app/(app)/contact/page.types";
 
 // biome-ignore lint/correctness/noEmptyPattern: this is a template file, REMOVE THIS COMMENT AFTER ADDING PROPS
 function PageContent({}: PageContentProps) {

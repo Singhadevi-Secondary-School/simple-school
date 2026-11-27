@@ -35,7 +35,9 @@ const organisationsConfig = {
   ),
 };
 
-const description = stripHtmlTags(`View organizations within ${CoreConfig.schoolName}.`);
+const description = stripHtmlTags(
+  `View organizations within ${CoreConfig.schoolName}.`,
+);
 
 export const metadata = createPageMetadata({
   title: "Organisations",
@@ -52,7 +54,10 @@ function Page() {
   return (
     <>
       <Suspense fallback={<PageLoading />}>
-        <PageContent organisationsConfig={organisationsConfig} coreConfig={CoreConfig}/>
+        <PageContent
+          organisationsConfig={organisationsConfig}
+          coreConfig={CoreConfig}
+        />
       </Suspense>
 
       <StructuredData

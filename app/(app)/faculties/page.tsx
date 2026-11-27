@@ -33,7 +33,9 @@ const facultiesConfig = {
   ),
 };
 
-const description = stripHtmlTags(`View academic faculties and departments within ${CoreConfig.schoolName}.`);
+const description = stripHtmlTags(
+  `View academic faculties and departments within ${CoreConfig.schoolName}.`,
+);
 
 export const metadata = createPageMetadata({
   title: "Faculties",

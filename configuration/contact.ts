@@ -8,39 +8,38 @@ export const schema = z
       .meta({
         title: "Contact Image",
         description:
-          "An image displayed on the grievance/contact page, such as a school building or contact person photo.",
+          "An image displayed on the contact page, such as a school building or contact person photo.",
       }),
     contactName: z.string().min(1, "Contact name is required.").meta({
       title: "Contact Name",
-      description:
-        "The name of the contact person or office, e.g. 'Grievance Officer'.",
+      description: "The name of the contact person or office.",
     }),
     contactSummary: z.string().min(1, "Contact summary is required.").meta({
       title: "Contact Summary",
-      description: "A brief description of the contact or grievance office.",
+      description: "A brief description of the contact office.",
     }),
     contactEmail: z.string().min(1, "Contact email is required.").meta({
       title: "Contact Email",
-      description: "The email address for contacting the grievance office.",
+      description: "The email address for contacting the institution.",
     }),
     contactPhone: z.string().min(1, "Contact phone is required.").meta({
       title: "Contact Phone",
-      description: "The phone number for the grievance office.",
+      description: "The phone number for contacting the institution.",
     }),
     contactAddress: z.string().min(1, "Contact address is required.").meta({
       title: "Contact Address",
-      description: "The physical address of the grievance office.",
+      description: "The physical address of the institution.",
     }),
     contactHour: z.string().min(1, "Contact hours are required.").meta({
       title: "Contact Hours",
       description:
-        "The operating hours of the grievance office, e.g. 'Mon-Fri, 9:00 AM - 5:00 PM'.",
+        "The contact office's operating hours, e.g. 'Mon-Fri, 9:00 AM - 5:00 PM'.",
     }),
   })
   .meta({
-    title: "Grievance & Contact Configuration",
+    title: "Contact & Feedback Configuration",
     description:
-      "Configuration for the grievance and contact page, including contact details and office hours.",
+      "Configuration for the contact page, including contact details and office hours.",
   });
 
 export const buildSchema = schema

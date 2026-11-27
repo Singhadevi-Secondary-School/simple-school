@@ -55,7 +55,7 @@ export const buildSchema = schema
       z.literal(""),
       z.url("Please provide a valid URL for the introduction picture."),
     ]),
-    story: z.string()
+    story: z.string(),
   })
   .partial();
 

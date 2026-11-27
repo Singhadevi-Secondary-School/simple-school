@@ -72,8 +72,8 @@ const MENU_PATH_MAP = [
     changeFrequency: "monthly" as const,
   },
   {
-    menu: "grievance",
-    path: "/grievance/",
+    menu: "contact",
+    path: "/contact/",
     priority: 0.5,
     changeFrequency: "monthly" as const,
   },

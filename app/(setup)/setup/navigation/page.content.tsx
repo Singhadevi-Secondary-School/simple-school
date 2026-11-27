@@ -37,7 +37,7 @@ const availableNavigations = [
   { value: "organisations", label: "Organisations" },
   { value: "downloads", label: "Downloads" },
   { value: "results", label: "Results" },
-  { value: "grievance", label: "Grievance" },
+  { value: "contact", label: "Contact & Feedback" },
 ];
 
 function PageContent() {

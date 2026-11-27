@@ -7,6 +7,10 @@ import {
   schema as AboutConfigurationSchema,
 } from "@/configuration/about";
 import {
+  type TOutput as ContactConfigurationOutput,
+  schema as ContactConfigurationSchema,
+} from "@/configuration/contact";
+import {
   type TOutput as ContentConfigurationOutput,
   schema as ContentConfigurationSchema,
 } from "@/configuration/content";
@@ -22,10 +26,6 @@ import {
   type TOutput as DownloadsConfigurationOutput,
   schema as DownloadsConfigurationSchema,
 } from "@/configuration/downloads";
-import {
-  type TOutput as GrievanceConfigurationOutput,
-  schema as GrievanceConfigurationSchema,
-} from "@/configuration/grievance";
 import {
   type TOutput as HomeConfigurationOutput,
   schema as HomeConfigurationSchema,
@@ -70,7 +70,7 @@ export enum Identifier {
   Contents = "contents",
   Content = "content",
   Downloads = "downloads",
-  Grievance = "grievance",
+  Contact = "contact",
   Organizations = "organizations",
   Organization = "organization",
   People = "people",
@@ -87,7 +87,7 @@ type ConfigurationModelMap = {
   [Identifier.Contents]: ContentsConfigurationOutput;
   [Identifier.Content]: ContentConfigurationOutput;
   [Identifier.Downloads]: DownloadsConfigurationOutput;
-  [Identifier.Grievance]: GrievanceConfigurationOutput;
+  [Identifier.Contact]: ContactConfigurationOutput;
   [Identifier.Organizations]: OrganizationsConfigurationOutput;
   [Identifier.Organization]: OrganizationConfigurationOutput;
   [Identifier.People]: PeopleConfigurationOutput;
@@ -115,7 +115,7 @@ const configurationPaths: Record<Identifier, (query?: ConfigQuery) => string> =
     [Identifier.Content]: (query) =>
       `public/config/contents/${query ? query.id : "empty"}.json`,
     [Identifier.Downloads]: (_) => `public/config/downloads.json`,
-    [Identifier.Grievance]: (_) => `public/config/grievance.json`,
+    [Identifier.Contact]: (_) => `public/config/contact.json`,
     [Identifier.Organizations]: (_) => `public/config/organizations.json`,
     [Identifier.Organization]: (query) =>
       `public/config/organizations/${query ? query.id : "empty"}.json`,
@@ -135,7 +135,7 @@ const configurationSchemas = {
   [Identifier.Contents]: ContentsConfigurationSchema,
   [Identifier.Content]: ContentConfigurationSchema,
   [Identifier.Downloads]: DownloadsConfigurationSchema,
-  [Identifier.Grievance]: GrievanceConfigurationSchema,
+  [Identifier.Contact]: ContactConfigurationSchema,
   [Identifier.Organizations]: OrganizationsConfigurationSchema,
   [Identifier.Organization]: OrganizationConfigurationSchema,
   [Identifier.People]: PeopleConfigurationSchema,

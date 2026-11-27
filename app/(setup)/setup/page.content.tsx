@@ -120,9 +120,9 @@ function PageContent() {
         />
         <ConfigurationGroupCard
           icon={<Mail />}
-          title="Grievance & Contact"
-          description="Configure the grievance and contact page."
-          pagePath="/setup/grievance"
+          title="Contact & Feedback"
+          description="Configure the contact and feedback page."
+          pagePath="/setup/contact"
         />
       </div>
     </div>

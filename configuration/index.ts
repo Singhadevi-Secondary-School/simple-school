@@ -23,11 +23,11 @@ export const DownloadsConfig: DownloadsOutput = downloadsSchema.parse(
   readConfigurationFromFile("downloads.json"),
 ) as DownloadsOutput;
 
-import type { TOutput as GrievanceOutput } from "@/configuration/grievance";
-import { buildSchema as grievanceSchema } from "@/configuration/grievance";
-export const GrievanceConfig: GrievanceOutput = grievanceSchema.parse(
-  readConfigurationFromFile("grievance.json"),
-) as GrievanceOutput;
+import type { TOutput as ContactOutput } from "@/configuration/contact";
+import { buildSchema as contactSchema } from "@/configuration/contact";
+export const ContactConfig: ContactOutput = contactSchema.parse(
+  readConfigurationFromFile("contact.json"),
+) as ContactOutput;
 
 import type { TOutput as HomeOutput } from "@/configuration/home";
 import { buildSchema as homeSchema } from "@/configuration/home";

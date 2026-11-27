@@ -18,7 +18,7 @@ const configurationFiles: ConfigurationFile[] = [
   { identifier: "contents", path: "contents.json" },
   { identifier: "core", path: "core.json" },
   { identifier: "downloads", path: "downloads.json" },
-  { identifier: "grievance", path: "grievance.json" },
+  { identifier: "contact", path: "contact.json" },
   { identifier: "home", path: "home.json" },
   { identifier: "navigation", path: "navigation.json" },
   { identifier: "organizations", path: "organizations.json" },

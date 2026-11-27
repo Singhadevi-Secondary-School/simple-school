@@ -15,7 +15,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { defaultValues, schema, type TOutput } from "@/configuration/grievance";
+import { defaultValues, schema, type TOutput } from "@/configuration/contact";
 import { Identifier } from "@/hooks/useConfig";
 import { useConfigurationForm } from "@/hooks/useConfigurationForm";
 import { cn } from "@/lib/utils";
@@ -31,7 +31,7 @@ function PageContent() {
     handleSubmit,
     formValues,
     hasChanges,
-  } = useConfigurationForm(Identifier.Grievance, schema, defaultValues);
+  } = useConfigurationForm(Identifier.Contact, schema, defaultValues);
 
   async function save(values: TOutput) {
     await saveConfig(values);
@@ -48,7 +48,7 @@ function PageContent() {
   return (
     <ConfigurationFormWrapper
       className={styles.page}
-      title={"Grievance & Contact Configuration"}
+      title={"Contact & Feedback Configuration"}
       config={formValues}
       form={form}
     >
@@ -84,7 +84,7 @@ function PageContent() {
               <Input
                 {...field}
                 id={"contactName"}
-                placeholder={"Grievance Officer"}
+                placeholder={"Contact person"}
                 className={cn("w-full", error && "border-destructive")}
               />
               {error && (
@@ -103,7 +103,7 @@ function PageContent() {
               <Textarea
                 {...field}
                 id={"contactSummary"}
-                placeholder={"Brief description of the grievance office"}
+                placeholder={"Brief description of the contact office"}
                 className={cn("w-full", error && "border-destructive")}
               />
               {error && (
@@ -123,7 +123,7 @@ function PageContent() {
                 {...field}
                 id={"contactEmail"}
                 type="email"
-                placeholder={"grievance@school.edu.np"}
+                placeholder={"contact@school.edu.np"}
                 className={cn("w-full", error && "border-destructive")}
               />
               {error && (

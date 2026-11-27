@@ -1,0 +1,12 @@
+{
+  "version": 0,
+  "configuration": {
+    "contactImage": "",
+    "contactName": "",
+    "contactSummary": "",
+    "contactEmail": "",
+    "contactPhone": "",
+    "contactAddress": "",
+    "contactHour": ""
+  }
+}

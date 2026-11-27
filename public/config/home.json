@@ -1,0 +1,10 @@
+{
+  "version": 0,
+  "configuration": {
+    "heroTitle": "",
+    "heroDescription": "",
+    "heroPicture": "",
+    "latestNoticesCount": 5,
+    "recentPublicationsCount": 5
+  }
+}

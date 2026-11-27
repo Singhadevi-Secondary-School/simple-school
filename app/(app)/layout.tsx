@@ -1,0 +1,56 @@
+import { join } from "node:path";
+import dynamic from "next/dynamic";
+import type React from "react";
+import { Suspense } from "react";
+import type { LayoutContentProps } from "@/app/(app)/layout.types";
+import { Spinner } from "@/components/ui/spinner";
+import {
+  CoreConfig,
+  NavigationConfig,
+  OrganizationsConfig,
+} from "@/configuration";
+import { getFileType, Templates } from "@/lib/templates";
+
+const templateType = getFileType(
+  join(process.cwd(), `templates/${CoreConfig.template}/layout.content.tsx`),
+);
+const LayoutContent =
+  templateType === Templates.Client
+    ? dynamic<LayoutContentProps>(
+        () => import(`@/templates/${CoreConfig.template}/layout.content`),
+        { ssr: true },
+      )
+    : templateType === Templates.Server
+      ? ((await import(`@/templates/${CoreConfig.template}/layout.content`))
+          .default as React.ComponentType<LayoutContentProps>)
+      : null;
+
+function Layout({ children }: LayoutProps<"/">) {
+  return (
+    <Suspense
+      fallback={
+        <div
+          className="flex items-center justify-center min-h-screen"
+          role="status"
+          aria-label="Loading layout"
+        >
+          <Spinner className="size-6" />
+        </div>
+      }
+    >
+      {LayoutContent ? (
+        <LayoutContent
+          coreConfig={CoreConfig}
+          navigationConfig={NavigationConfig}
+          organizationsConfig={OrganizationsConfig}
+        >
+          {children}
+        </LayoutContent>
+      ) : (
+        children
+      )}
+    </Suspense>
+  );
+}
+
+export default Layout;

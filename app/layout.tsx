@@ -1,0 +1,135 @@
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+import "@/components/block-editor/style.css";
+import Providers from "@/app/Providers";
+import StructuredData from "@/components/StructuredData";
+import { CoreConfig, HomeConfig, NavigationConfig } from "@/configuration";
+import { geistMono, plusJakartaSans, rubik } from "@/lib/fonts";
+import {
+  getAbsoluteUrl,
+  getAuthorName,
+  getCanonicalUrl,
+  getSiteDescription,
+  getSiteName,
+  getSiteUrl,
+  getTwitterHandle,
+  truncateDescription,
+} from "@/lib/pageMetadata";
+
+const siteUrl = getSiteUrl();
+const canonical = getCanonicalUrl("/");
+const siteName = getSiteName();
+const authorName = getAuthorName();
+const siteDescription = truncateDescription(getSiteDescription());
+const socialImage = getAbsoluteUrl(
+  HomeConfig.heroPicture ||
+    CoreConfig.logo ||
+    CoreConfig.logoIcon ||
+    "/favicon.ico",
+);
+
+export const metadata: Metadata = {
+  metadataBase: siteUrl,
+  title: {
+    default: siteName,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  keywords: CoreConfig.seoKeywords,
+  authors: [
+    {
+      name: authorName,
+    },
+  ],
+  alternates: {
+    canonical: canonical,
+    languages: {
+      en: canonical || "/",
+    },
+  },
+  icons: {
+    icon: CoreConfig.logoIcon || "/favicon.ico",
+    apple: CoreConfig.logoIcon || "/favicon.ico",
+  },
+  manifest: "/manifest.webmanifest",
+  category: "school",
+  creator: authorName,
+  publisher: authorName,
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    url: canonical,
+    title: siteName,
+    description: siteDescription,
+    siteName,
+    locale: "en_US",
+    images: [
+      {
+        url: socialImage,
+        width: 1200,
+        height: 630,
+        alt: CoreConfig.schoolName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    ...(getTwitterHandle()
+      ? { site: getTwitterHandle(), creator: getTwitterHandle() }
+      : {}),
+    title: siteName,
+    description: siteDescription,
+    images: [{ url: socialImage, alt: siteDescription }],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+};
+
+function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html
+      lang="en"
+      data-google-analytics-opt-out=""
+      className={`${plusJakartaSans.variable} ${rubik.variable} ${geistMono.variable}`}
+    >
+      <body className={plusJakartaSans.className}>
+        <Providers>
+          {children}
+          <StructuredData
+            data={{
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  name: authorName,
+                  image: socialImage,
+                  ...(canonical ? { url: canonical } : {}),
+                  sameAs: NavigationConfig.socials.map((social) => social.url),
+                },
+                {
+                  "@type": "WebSite",
+                  name: siteName,
+                  description: siteDescription,
+                  ...(canonical ? { url: canonical } : {}),
+                },
+              ],
+            }}
+          />
+        </Providers>
+      </body>
+    </html>
+  );
+}
+
+export default RootLayout;

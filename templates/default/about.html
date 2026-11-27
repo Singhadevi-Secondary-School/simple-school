@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Default Template</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 24px;
+        background: #f3f6f7;
+        color: #181c1d;
+        font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 720px;
+        border: 1px solid #c4c6ce;
+        border-radius: 16px;
+        background: #ffffff;
+        padding: 40px;
+        box-shadow: 0 8px 24px rgb(20 43 69 / 8%);
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        color: #142b45;
+        font-family: Rubik, "Plus Jakarta Sans", system-ui, sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      .tagline {
+        margin: 0 0 24px;
+        color: #245b78;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      p:not(.tagline) {
+        margin: 0 0 16px;
+        color: #43474d;
+      }
+
+      .author {
+        margin-top: 28px;
+        border-top: 1px solid #c4c6ce;
+        padding-top: 20px;
+        color: #43474d;
+        font-size: 14px;
+      }
+
+      .author a {
+        border-radius: 2px;
+        color: #2d827b;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .author a:hover {
+        text-decoration: underline;
+      }
+
+      .author a:focus-visible {
+        outline: 2px solid #d6a84f;
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 16px;
+        }
+
+        .container {
+          padding: 28px 24px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Default Template</h1>
+      <p class="tagline">
+        A flexible template for schools, campuses, and colleges.
+      </p>
+      <p>
+        Bring announcements, activities, publications, results, resources, and
+        people together in one clear site.
+      </p>
+      <p>
+        Update the content and sections to fit your institution. The layout
+        adapts across screen sizes and keeps navigation consistent.
+      </p>
+
+      <footer class="author">
+        Authored by Gaurav Nyaupane —
+        <a
+          href="https://gauravnyaupane.com.np"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          gauravnyaupane.com.np
+        </a>
+      </footer>
+    </main>
+  </body>
+</html>

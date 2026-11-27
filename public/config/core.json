@@ -1,0 +1,12 @@
+{
+  "version": 0,
+  "configuration": {
+    "schoolName": "",
+    "location": "",
+    "logo": "",
+    "logoIcon": "",
+    "seoDescription": "",
+    "seoKeywords": [],
+    "template": "default"
+  }
+}

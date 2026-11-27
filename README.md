@@ -24,23 +24,6 @@ This project started as a personal portfolio and evolved into a reusable [portfo
 
 ## Features
 
-### Pages
-
-A collection of configurable pages to present your professional identity, experience, and work.
-
-- **Home:** A personalized landing page with a cover image and introduction.
-- **About:** An introduction, profile information, and key highlights.
-- **Journey:** An interactive timeline of academic, professional, and personal milestones.
-- **Projects:** Showcase projects with descriptions, images, external links, and key details.
-- **Skills:** Present technical skills and associate them with relevant projects and milestones.
-- **Services:** Describe services you offer and provide relevant links.
-- **Testimonials:** Display recommendations and testimonials with author information.
-- **Gallery:** Organize photographs into collections.
-- **Blog:** Publish articles using a rich-text editing experience.
-- **Quick Links:** Provide convenient access to downloadable resources and important links.
-
-Individual pages and their content can be configured independently. The navigation menu can also be customized to show only the sections you want.
-
 ### Built-in content management system
 
 The application includes a dedicated Setup interface for managing website content without manually editing configuration files.
@@ -48,8 +31,7 @@ The application includes a dedicated Setup interface for managing website conten
 Features include:
 
 - Form-based configuration for individual website sections.
-- Dynamic management of projects, skills, milestones, testimonials, and other entries.
-- Rich-text editing for blog posts.
+- Dynamic management of pages and contents.
 - Configuration validation using Zod schemas.
 - GitHub-backed file management.
 - Image and asset selection from the connected repository.
@@ -81,7 +63,7 @@ Fork this repository:
 
 [https://github.com/nightmaregaurav/simple-school](https://github.com/nightmaregaurav/simple-school)
 
-Your fork will become the source repository for your personal website.
+Your fork will become the source repository for your school website.
 
 ### 2. Configure GitHub Pages
 

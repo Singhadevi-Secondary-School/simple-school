@@ -1,15 +1,15 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { getConfigurationDirectory } from "@/configuration/configurationFiles";
-import { defaultValues } from "@/configuration/grievance";
+import { defaultValues } from "@/configuration/contact";
 
-export function initialGrievanceMigration(): unknown {
+export function initialContactMigration(): unknown {
   const configDirectory = getConfigurationDirectory();
 
-  const configPath = join(configDirectory, "grievance.json");
+  const configPath = join(configDirectory, "contact.json");
   if (existsSync(configPath)) {
     throw new Error(
-      `Configuration file "grievance.json" already exists. Initial migration cannot be performed.`,
+      `Configuration file "contact.json" already exists. Initial migration cannot be performed.`,
     );
   }
 

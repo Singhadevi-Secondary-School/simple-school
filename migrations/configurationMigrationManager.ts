@@ -1,9 +1,9 @@
 import { initialAboutMigration } from "@/migrations/about/initial";
 import { currentConfigurationVersions } from "@/migrations/configurationVersions";
+import { initialContactMigration } from "@/migrations/contact/initial";
 import { initialContentsMigration } from "@/migrations/contents/initial";
 import { initialCoreMigration } from "@/migrations/core/initial";
 import { initialDownloadsMigration } from "@/migrations/downloads/initial";
-import { initialGrievanceMigration } from "@/migrations/grievance/initial";
 import { initialHomeMigration } from "@/migrations/home/initial";
 import { initialNavigationMigration } from "@/migrations/navigation/initial";
 import { initialOrganizationsMigration } from "@/migrations/organizations/initial";
@@ -27,7 +27,7 @@ const initialMigrationMap: Record<string, InitialMigration> = {
   contents: initialContentsMigration,
   core: initialCoreMigration,
   downloads: initialDownloadsMigration,
-  grievance: initialGrievanceMigration,
+  contact: initialContactMigration,
   home: initialHomeMigration,
   navigation: initialNavigationMigration,
   organizations: initialOrganizationsMigration,
@@ -42,7 +42,7 @@ const configurationMigrationManager: Record<string, ConfigurationMigrationMap> =
     contents: {},
     core: {},
     downloads: {},
-    grievance: {},
+    contact: {},
     home: {},
     navigation: {},
     organization: {},

@@ -22,7 +22,7 @@ const MENU_PATH_MAP = [
   { menu: "organisations", path: "/organisations/" },
   { menu: "results", path: "/results/" },
   { menu: "downloads", path: "/downloads/" },
-  { menu: "grievance", path: "/grievance/" },
+  { menu: "contact", path: "/contact/" },
 ];
 
 function getSitemapSlug(slugs: { slug: string; isActive: boolean }[]) {
@@ -50,7 +50,10 @@ export function GET() {
     if (NavigationConfig.enabledNavigations.includes(item.menu)) {
       const url = getCanonicalUrl(item.path);
       if (url) {
-        const label = item.menu.charAt(0).toUpperCase() + item.menu.slice(1);
+        const label =
+          item.menu === "contact"
+            ? "Contact & Feedback"
+            : item.menu.charAt(0).toUpperCase() + item.menu.slice(1);
         lines.push(`- **${label}:** ${url}`);
       }
     }

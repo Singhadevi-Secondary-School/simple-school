@@ -4,7 +4,7 @@ export const currentConfigurationVersions: Record<string, number> = {
   contents: 0,
   core: 0,
   downloads: 0,
-  grievance: 0,
+  contact: 0,
   home: 0,
   navigation: 0,
   organization: 0,

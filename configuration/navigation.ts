@@ -39,7 +39,7 @@ export const schema = z
           .meta({
             title: "Navigation Name",
             description:
-              "The navigation key (e.g., about, notice, publication, activities, all-staffs, classes, faculties, organisations, downloads, results, grievance). " +
+              "The navigation key (e.g., about, notice, publication, activities, all-staffs, classes, faculties, organisations, downloads, results, contact). " +
               "When disabled, the page is removed from the sitemap, and the path is disallowed in robots.txt.",
           }),
       )

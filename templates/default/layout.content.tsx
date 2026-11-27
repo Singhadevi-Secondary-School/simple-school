@@ -106,7 +106,7 @@ function Header({
     "/organisations/",
     "/downloads/",
     "/results/",
-    "/grievance/",
+    "/contact/",
   ].some((href) => isCurrentPath(currentPath, href));
 
   return (
@@ -255,7 +255,7 @@ function Header({
           {(enabledNavs.includes("organisations") ||
             enabledNavs.includes("downloads") ||
             enabledNavs.includes("results") ||
-            enabledNavs.includes("grievance")) && (
+            enabledNavs.includes("contact")) && (
             <Dropdown
               trigger="More"
               isCurrent={moreIsCurrent}
@@ -309,13 +309,13 @@ function Header({
                   Results
                 </NavigationLink>
               )}
-              {enabledNavs.includes("grievance") && (
+              {enabledNavs.includes("contact") && (
                 <NavigationLink
-                  href="/grievance/"
+                  href="/contact/"
                   currentPath={currentPath}
                   className={styles.dropdownLink}
                 >
-                  Contact & feedback
+                  Contact & Feedback
                 </NavigationLink>
               )}
             </Dropdown>
@@ -437,13 +437,13 @@ function Header({
                 Results
               </NavigationLink>
             )}
-            {enabledNavs.includes("grievance") && (
+            {enabledNavs.includes("contact") && (
               <NavigationLink
-                href="/grievance/"
+                href="/contact/"
                 currentPath={currentPath}
                 className={styles.mobileLink}
               >
-                Contact & feedback
+                Contact & Feedback
               </NavigationLink>
             )}
           </div>

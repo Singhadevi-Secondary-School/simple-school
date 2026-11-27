@@ -187,6 +187,39 @@ export default function PageContent({
 
         <Controller
           control={control}
+          name={"daysToShowNoticePopupFor"}
+          render={({ field, fieldState: { error } }) => (
+            <div className={"grid gap-2"}>
+              <Label htmlFor={"daysToShowNoticePopupFor"}>
+                Days to Show Notice Popups For
+              </Label>
+              <Input
+                {...field}
+                id={"daysToShowNoticePopupFor"}
+                type="number"
+                min={0}
+                step={1}
+                aria-describedby="daysToShowNoticePopupFor-description"
+                onChange={(event) =>
+                  field.onChange(event.currentTarget.valueAsNumber)
+                }
+                className={cn("w-full", error && "border-destructive")}
+              />
+              <p
+                id="daysToShowNoticePopupFor-description"
+                className="text-sm text-muted-foreground"
+              >
+                Set to 0 to disable notice popups.
+              </p>
+              {error && (
+                <small className={"text-destructive"}>{error.message}</small>
+              )}
+            </div>
+          )}
+        />
+
+        <Controller
+          control={control}
           name={"template"}
           render={({ field, fieldState: { error } }) => (
             <div className={"grid gap-2"}>

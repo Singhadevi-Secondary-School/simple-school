@@ -4,6 +4,7 @@ export interface PageContentProps {
     position: string;
     name?: string;
     slug?: string;
+    photo?: string;
     [key: string]: unknown;
   }>;
   schoolName: string;

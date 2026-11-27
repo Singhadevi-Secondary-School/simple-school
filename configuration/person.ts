@@ -2,6 +2,10 @@ import * as z from "zod";
 
 export const schema = z
   .object({
+    photo: z.url("The photo url must be valid").optional().meta({
+      title: "Photo",
+      description: "The URL of the person's photo, shown on people cards.",
+    }),
     phone: z.string().optional().meta({
       title: "Phone",
       description: "The phone number of the person.",
@@ -47,7 +51,7 @@ export const schema = z
   .meta({
     title: "Person Details",
     description:
-      "Detailed contact information and schedule for a person, stored in a file named after their ID.",
+      "Optional photo, contact information, and schedule for a person, stored in a file named after their ID.",
   });
 
 export const buildSchema = schema.extend({}).partial();
@@ -57,6 +61,7 @@ export type TOutput = z.output<typeof schema>;
 export type TModel = TOutput;
 
 export const defaultValues: TInput = {
+  photo: "",
   phone: "",
   email: "",
   schedules: [],

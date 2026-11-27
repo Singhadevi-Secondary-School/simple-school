@@ -78,11 +78,9 @@ export function PageHeader({
         ))}
       </nav>
       <h1 className={styles.pageTitle}>{title}</h1>
-      {typeof description === "string" ? (
-        description && <p className={styles.pageDescription}>{description}</p>
-      ) : (
-        description
-      )}
+      {typeof description === "string"
+        ? description && <p className={styles.pageDescription}>{description}</p>
+        : description}
     </header>
   );
 }

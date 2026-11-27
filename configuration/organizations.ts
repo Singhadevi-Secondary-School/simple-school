@@ -73,10 +73,7 @@ export const schema = z
       "Configuration for the organisations page and its organisation entries.",
   });
 
-export const buildSchema = schema
-  .extend({
-  })
-  .partial();
+export const buildSchema = schema.extend({}).partial();
 
 export type TInput = z.input<typeof schema>;
 export type TOutput = z.output<typeof schema>;

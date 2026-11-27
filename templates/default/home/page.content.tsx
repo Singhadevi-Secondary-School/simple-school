@@ -24,9 +24,7 @@ function PageContent({ coreConfig, homeConfig }: PageContentProps) {
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
             <div className={styles.heroText}>
-              <h1 className={styles.heroTitle}>
-                {homeConfig.heroTitle || ""}
-              </h1>
+              <h1 className={styles.heroTitle}>{homeConfig.heroTitle || ""}</h1>
               {homeConfig.heroDescription && (
                 <p className={styles.heroDescription}>
                   {homeConfig.heroDescription}

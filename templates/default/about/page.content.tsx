@@ -1,9 +1,9 @@
 import type { PageContentProps } from "@/app/(app)/about/page.types";
+import HtmlRenderer from "@/components/ui/HtmlRenderer";
+import { cn } from "@/lib/utils";
 import { CampusIllustration } from "@/templates/default/campus-illustration";
 import { PageHeader } from "@/templates/default/components";
 import styles from "@/templates/default/shared.module.css";
-import HtmlRenderer from "@/components/ui/HtmlRenderer";
-import {cn} from "@/lib/utils";
 
 function PageContent({
   coreConfig,
@@ -65,9 +65,9 @@ function PageContent({
       {aboutConfig.story && (
         <section className={styles.storyCard} aria-label="Our story">
           <h2 className={styles.sectionTitle}>Our story</h2>
-            <HtmlRenderer className={cn(styles.storyText, "max-w-full!")}>
-              {aboutConfig.story}
-            </HtmlRenderer>
+          <HtmlRenderer className={cn(styles.storyText, "max-w-full!")}>
+            {aboutConfig.story}
+          </HtmlRenderer>
         </section>
       )}
 

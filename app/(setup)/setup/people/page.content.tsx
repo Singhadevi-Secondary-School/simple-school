@@ -330,7 +330,7 @@ function PersonForm({
             <div className={"grid gap-3"}>
               {(details.schedules || []).map((schedule, index) => (
                 <div
-                  key={`${selectedPersonId}-schedule-${index}`}
+                  key={`${selectedPersonId}-schedule-${JSON.stringify(schedule)}`}
                   className={"grid gap-3 rounded-lg border p-3"}
                 >
                   <div className={"flex items-center justify-between gap-3"}>

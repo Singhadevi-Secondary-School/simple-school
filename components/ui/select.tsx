@@ -113,8 +113,9 @@ function SelectLabel({
 function SelectItem({
   className,
   children,
+  description,
   ...props
-}: SelectPrimitive.Item.Props) {
+}: SelectPrimitive.Item.Props & { description?: React.ReactNode }) {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
@@ -124,9 +125,20 @@ function SelectItem({
       )}
       {...props}
     >
-      <SelectPrimitive.ItemText className="flex flex-1 shrink-0 gap-2 whitespace-nowrap">
-        {children}
-      </SelectPrimitive.ItemText>
+      {description ? (
+        <span className="flex min-w-0 flex-1 flex-col">
+          <SelectPrimitive.ItemText className="flex flex-1 shrink-0 gap-2 whitespace-nowrap">
+            {children}
+          </SelectPrimitive.ItemText>
+          <span className="break-all whitespace-normal text-xs text-muted-foreground">
+            {description}
+          </span>
+        </span>
+      ) : (
+        <SelectPrimitive.ItemText className="flex flex-1 shrink-0 gap-2 whitespace-nowrap">
+          {children}
+        </SelectPrimitive.ItemText>
+      )}
       <SelectPrimitive.ItemIndicator
         render={
           <span className="pointer-events-none absolute right-2 flex size-4 items-center justify-center" />

@@ -350,8 +350,7 @@ function PeopleField({
   ) => void;
 }) {
   const { config: peopleConfig } = useConfig(Identifier.People);
-  const peopleOptions =
-    peopleConfig?.people.map((p) => ({ id: p.id, name: p.name })) || [];
+  const peopleOptions = peopleConfig?.people || [];
 
   function movePerson(index: number, direction: -1 | 1) {
     const nextIndex = index + direction;
@@ -394,7 +393,7 @@ function PeopleField({
             </SelectTrigger>
             <SelectContent>
               {peopleOptions.map((opt) => (
-                <SelectItem key={opt.id} value={opt.id}>
+                <SelectItem key={opt.id} value={opt.id} description={opt.id}>
                   {opt.name || `#${opt.id}`}
                 </SelectItem>
               ))}

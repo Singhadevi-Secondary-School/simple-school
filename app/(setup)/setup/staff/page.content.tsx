@@ -78,8 +78,7 @@ function PageContent() {
 
   const [deletingPerson, setDeletingPerson] = useState<boolean>(false);
 
-  const peopleOptions =
-    peopleConfig?.people.map((p) => ({ id: p.id, name: p.name })) || [];
+  const peopleOptions = peopleConfig?.people || [];
 
   async function save() {
     await saveConfig(orgSchema.parse(details));
@@ -292,7 +291,11 @@ function PageContent() {
                         </SelectTrigger>
                         <SelectContent>
                           {peopleOptions.map((opt) => (
-                            <SelectItem key={opt.id} value={opt.id}>
+                            <SelectItem
+                              key={opt.id}
+                              value={opt.id}
+                              description={opt.id}
+                            >
                               {opt.name || `#${opt.id}`}
                             </SelectItem>
                           ))}

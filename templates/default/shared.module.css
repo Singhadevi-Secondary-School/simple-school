@@ -817,6 +817,14 @@
   font-weight: 700;
 }
 
+.personAvatarImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .personHeader {
   display: flex;
   flex-direction: column;

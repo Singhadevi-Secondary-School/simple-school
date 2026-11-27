@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import ConfigurationFormWrapper from "@/components/ui/ConfigurationFormWrapper";
 import { confirm } from "@/components/ui/Confirm";
+import { FileUrl } from "@/components/ui/FileUrl";
 import FullScreenMessage from "@/components/ui/FullScreenMessage";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -117,6 +118,7 @@ function PersonForm({
   useEffect(() => {
     if (personConfig !== undefined && personConfig !== prevConfigRef.current) {
       setDetails({
+        photo: personConfig.photo || "",
         phone: personConfig.phone || "",
         email: personConfig.email || "",
         schedules: personConfig.schedules || [],
@@ -127,6 +129,7 @@ function PersonForm({
   }, [personConfig]);
 
   const hasDetailsChanges =
+    details.photo !== (personConfig?.photo || "") ||
     details.phone !== (personConfig?.phone || "") ||
     details.email !== (personConfig?.email || "") ||
     JSON.stringify(details.schedules) !==
@@ -241,11 +244,33 @@ function PersonForm({
         <div className={"border-b pb-4"}>
           <h2 className={"font-medium"}>Person details</h2>
           <p className={"mt-1 text-sm text-muted-foreground"}>
-            Contact information and schedule
+            Photo, contact information, and schedule
           </p>
         </div>
 
         <div className={"grid gap-3 md:grid-cols-2"}>
+          <div className={"grid gap-2"}>
+            <Label htmlFor={"person-photo"}>Photo</Label>
+            {isLoadingPersonDetails ? (
+              <div
+                className={
+                  "flex h-10 items-center justify-center rounded-lg border"
+                }
+              >
+                <Spinner />
+              </div>
+            ) : (
+              <FileUrl
+                value={details.photo || ""}
+                onChange={(value) =>
+                  setDetails((prev) => ({ ...prev, photo: value }))
+                }
+                id={"person-photo"}
+                placeholder={"https://example.com/person.jpg"}
+              />
+            )}
+          </div>
+
           <div className={"grid gap-2"}>
             <Label>Phone</Label>
             {isLoadingPersonDetails ? (

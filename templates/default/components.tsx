@@ -24,6 +24,7 @@ export interface PersonCardData {
   id?: string;
   name?: string;
   position?: string;
+  photo?: string;
   email?: string;
   phone?: string;
   schedules?: Array<{
@@ -247,7 +248,15 @@ export function PeopleGrid({
                 className={styles.peopleItem}
               >
                 <span className={styles.personAvatar} aria-hidden="true">
-                  {name.charAt(0).toUpperCase()}
+                  {person.photo ? (
+                    <img
+                      className={styles.personAvatarImage}
+                      src={person.photo}
+                      alt=""
+                    />
+                  ) : (
+                    name.charAt(0).toUpperCase()
+                  )}
                 </span>
                 <div className={styles.personHeader}>
                   <h3 className={styles.peopleItemName}>{name}</h3>

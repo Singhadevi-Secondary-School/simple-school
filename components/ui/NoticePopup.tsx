@@ -22,7 +22,8 @@ export default function NoticePopup({
   notices: NoticePopupItem[];
   daysToShow: number;
 }) {
-  const [dismissedNoticeIds, setDismissedNoticeIds] = useState<Set<string> | null>(null);
+  const [dismissedNoticeIds, setDismissedNoticeIds] =
+    useState<Set<string> | null>(null);
 
   useEffect(() => {
     let ids: string[] = [];
